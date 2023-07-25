@@ -10,7 +10,7 @@ class TaskForm extends Form
 {    
     public $id;
 
-    #[Rule('required|min:3')] 
+    #[Rule('required|min:3')]    
     public $description;
 
     public function load(Task $task)
@@ -21,11 +21,16 @@ class TaskForm extends Form
 
     public function save()
     {
-        Task::create($this->all());
+        $this->validate();
+        $model = Task::create($this->all());
+        if ($model !== null){
+            $this->load($model);
+        }
     }
 
     public function update()
     {
+        $this->validate();
         Task::where('id', $this->id)->update(
             [
                 'description' => $this->description

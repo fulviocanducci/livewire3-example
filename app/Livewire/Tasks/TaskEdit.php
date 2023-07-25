@@ -19,7 +19,7 @@ class TaskEdit extends Component
     {
         $this->form->update();
 
-        return $this->redirect('/tasks', navigate: true);
+        return $this->redirect("/task/edit/{$this->form->id}", navigate: true);
     }
     
     public function render()
