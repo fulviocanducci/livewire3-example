@@ -16,7 +16,9 @@ class TaskCreate extends Component
 
     public function save()
     {
-        $this->form->save();        
+        $this->form->save();   
+
+        session()->flash('message', 'Criado com sucesso.');
 
         return $this->redirect("/task/edit/{$this->form->id}", navigate: true);
     }

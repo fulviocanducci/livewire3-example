@@ -19,6 +19,8 @@ class TaskEdit extends Component
     {
         $this->form->update();
 
+        session()->flash('message', 'Alterado com sucesso.');
+
         return $this->redirect("/task/edit/{$this->form->id}", navigate: true);
     }
     

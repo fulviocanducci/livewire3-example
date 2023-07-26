@@ -10,7 +10,7 @@ class TaskForm extends Form
 {    
     public $id;
 
-    #[Rule('required|min:3')]    
+    #[Rule('required|min:3', message: "Digite a descrição", onUpdate: true)]    
     public $description;
 
     public function load(Task $task)
