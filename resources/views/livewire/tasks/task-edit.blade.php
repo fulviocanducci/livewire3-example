@@ -9,7 +9,7 @@
         </div>
         <div class="form-group mb-2">
             <label for="form-description" class="form-label mb-0">Descrição: </label>
-            <input type="text" id="form-description" class="form-control form-control-sm" wire:model.live="form.description" autofocus />        
+            <input type="text" id="form-description" class="form-control form-control-sm @error('form.description') is-invalid @enderror" wire:model.live="form.description" autofocus />        
             <div>
                 @error('form.description') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
